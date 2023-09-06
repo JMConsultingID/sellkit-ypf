@@ -1,4 +1,67 @@
 /**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
+ * All of the CSS for your public-facing functionality should be included in
+ * this file.
  */
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-first
+ #customer_details{ display: none!important; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout-first .sellkit-multistep-checkout-first-footer{
+ display: none!important; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-second{
+ display: none!important; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
+ display: block!important; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields h4.sellkit-one-page-checkout-billing-header
+  { display: none!important; } 
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields p.billing-desc{ display: none!important; } 
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields .billing-method{ display: block!important; } 
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third{
+ display: flex!important; flex-direction: column!important; }
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields{ order: -1!important;}
+.elementor-widget-sellkit-checkout .sellkit-multistep-checkout.sellkit-multistep-checkout-third
+ .woocommerce-billing-fields .sellkit-one-page-checkout-payment-desc{ display:
+  none!important; }
+.elementor-widget-sellkit-checkout .sellkit-checkout-right-column
+ .sellkit-one-page-checkout-place-order .sellkit-checkout-widget-return-button
+  { display: none!important; } 
+
+ .elementor-widget-sellkit-checkout .sellkit-checkout-right-column
+ .sellkit-one-page-checkout-place-order #place_order{ width:
+  100%!important; }
+.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
+ .woocommerce-checkout-review-order-table .product-quantity{ display:
+  none!important; }
+.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
+ .woocommerce-checkout-review-order-table .sellkit-checkout-variations
+  { display: none!important; }
+.trustbadges{
+ display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display:
+ flex;-ms-flex-wrap: wrap; flex-wrap: wrap; margin-left: -15px;
+ margin-right: -15px; }
+.py-7
+ { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+.items-center{
+ -webkit-box-align: center;-ms-flex-align: center; align-items: center; }
+.trustbadges-item{
+ width: 25%; padding-left: 15px; padding-right: 15px; }
+.trustbadges-mobile{
+ display: none; order: 5; }
+.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
+ .woocommerce-checkout-review-order-table .sellkit-shipping-total{
+    display: none!important;
+ }
+.sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
+ .woocommerce-checkout-review-order-table .sellkit-checkout-widget-divider{
+    border: 0!important;
+}
+@media only screen and (max-width: 600px) {
+   .sellkit-checkout-widget-main-wrapper .sellkit-one-page-checkout-place-order
+    #place_order { width: 100%!important; }
+   .trustbadges-desktop { display: -webkit-box; display: -webkit-flex;
+    display: -ms-flexbox; display: flex; order: 5; }
+   .sellkit-checkout-widget-multi-page-build
+    form .inner_wrapper .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar
+    .summary_toggle { display: none!important; } }
