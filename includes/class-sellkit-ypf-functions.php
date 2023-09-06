@@ -110,12 +110,12 @@ function sellkit_ypf_enable_css_editor_callback() {
 
 function sellkit_ypf_custom_css_callback() {
     $value = get_option('sellkit_ypf_custom_css', '');
-    echo '<textarea id="sellkit-fyfx-css-editor" name="sellkit_ypf_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
+    echo '<textarea id="sellkit-ypf-css-editor" name="sellkit_ypf_custom_css" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
 }
 
 function sellkit_ypf_custom_js_callback() {
     $value = get_option('sellkit_ypf_custom_js', '');
-    echo '<textarea id="sellkit-fyfx-js-editor" name="sellkit_ypf_custom_js" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
+    echo '<textarea id="sellkit-ypf-js-editor" name="sellkit_ypf_custom_js" rows="10" cols="50">' . esc_textarea($value) . '</textarea>';
 }
 
 function sellkit_ypf_enqueue_scripts($hook) {
