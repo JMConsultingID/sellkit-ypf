@@ -143,6 +143,7 @@ function sellkit_ypf_export_settings() {
     $settings = array(
         'sellkit_ypf_enable_plugin' => get_option('sellkit_ypf_enable_plugin'),
         'sellkit_ypf_enable_badges_payment' => get_option('sellkit_ypf_enable_badges_payment'),
+        'sellkit_ypf_badges_images_payment' => get_option('sellkit_ypf_badges_images_payment'),
         'sellkit_ypf_enable_terms_conditions' => get_option('sellkit_ypf_enable_terms_conditions'),
         'sellkit_ypf_enable_css_editor' => get_option('sellkit_ypf_enable_css_editor'),
         'sellkit_ypf_custom_css' => get_option('sellkit_ypf_custom_css'),
