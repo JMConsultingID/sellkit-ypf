@@ -40,12 +40,6 @@ function sellkit_ypf_add_terms_and_conditions_checkbox() {
                     termsWrapper.style.display = 'none';
                 }
             });
-            jQuery(".woocommerce-checkout").on( 'click', 'a.woocommerce-terms-and-conditions-link', function(event) {
-                event.stopPropagation();
-                let TermsPageLink = jQuery('a.woocommerce-terms-and-conditions-link').attr('href');
-                window.open(TermsPageLink, '_blank');
-                return false;
-            });
         </script> 
         <?php
     }  
