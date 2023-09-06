@@ -63,6 +63,8 @@ register_deactivation_hook( __FILE__, 'deactivate_sellkit_ypf' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-ypf.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-ypf-functions.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-sellkit-ypf-functions-frontend.php';
 
 /**
  * Begins execution of the plugin.

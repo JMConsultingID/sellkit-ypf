@@ -59,7 +59,7 @@ add_action('admin_init', 'sellkit_ypf_register_settings');
 
 // Callback function for the "General Settings" section
 function sellkit_ypf_general_settings_callback() {
-    echo '<p>These are the general settings for the SellKit YPF plugin. Please feel free to customize them according to your needs.</p>';
+    echo '<p>These are the general settings for the SellKit YPF plugin. Please feel free to customize them according to your needs.</br>After making changes in the SellKit YPF plugin, Please Refresh your website and clear cache of your browser.</br> If you have any questions, please send an email to <a href="mailto:ardi@jm-consulting.id">ardi@jm-consulting.id</a>.</br>Enjoy Using this Plugin.</p>';
 }
 
 // Callback functions for settings fields
