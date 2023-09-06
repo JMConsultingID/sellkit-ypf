@@ -37,26 +37,22 @@
 .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
  .woocommerce-checkout-review-order-table .sellkit-checkout-variations
   { display: none!important; }
-.trustbadges{
- display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display:
- flex;-ms-flex-wrap: wrap; flex-wrap: wrap; margin-left: -15px;
- margin-right: -15px; }
-.py-7
- { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+.trustbadges{ display: -webkit-box; display: -webkit-flex;
+ display: -ms-flexbox; display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;
+ margin-left: -15px; margin-right: -15px; }
+.py-7{ padding-top: 1.75rem; padding-bottom: 1.75rem; }
 .items-center{
  -webkit-box-align: center;-ms-flex-align: center; align-items: center; }
-.trustbadges-item{
- width: 25%; padding-left: 15px; padding-right: 15px; }
-.trustbadges-mobile{
- display: none; order: 5; }
+.trustbadges-item{ width: 25%; padding-left: 15px; padding-right: 15px; }
+.trustbadges-mobile{ display: none; order: 5; }
 .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
- .woocommerce-checkout-review-order-table .sellkit-shipping-total{
-    display: none!important;
- }
+ .woocommerce-checkout-review-order-table .sellkit-shipping-total{ display:
+  none!important; }
 .sellkit-checkout-right-column .sellkit-multistep-checkout-sidebar .woocommerce-checkout-review-order
- .woocommerce-checkout-review-order-table .sellkit-checkout-widget-divider{
-    border: 0!important;
-}
+ .woocommerce-checkout-review-order-table .sellkit-checkout-widget-divider
+  { border: 0!important; }
+.woocommerce-terms-and-conditions-wrapper.sellkit-checkout-terms .woocommerce-terms-and-conditions{
+ display: none!important; }
 @media only screen and (max-width: 600px) {
    .sellkit-checkout-widget-main-wrapper .sellkit-one-page-checkout-place-order
     #place_order { width: 100%!important; }
