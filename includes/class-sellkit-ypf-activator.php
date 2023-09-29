@@ -33,29 +33,5 @@ class Sellkit_Ypf_Activator {
 
 	}
 
-    public static function activate() {
-        // Tambahkan hook ke 'admin_init' untuk memeriksa saat plugin Anda diaktifkan
-        add_action( 'admin_init', array( 'Sellkit_Ypf_Activator', 'check_github_updater_active' ) );
-    }
-
-    // Fungsi untuk memeriksa apakah GitHub Updater diaktifkan
-    public static function check_github_updater_active() {
-        // Cek apakah GitHub Updater aktif
-        if ( ! is_plugin_active( 'github-updater/github-updater.php' ) ) {
-            // Tampilkan pemberitahuan di dasbor
-            add_action( 'admin_notices', array( 'Sellkit_Ypf_Activator', 'show_github_updater_notice' ) );
-            // Nonaktifkan plugin Anda
-            deactivate_plugins( plugin_basename( __FILE__ ) );
-        }
-    }
-
-    // Fungsi untuk menampilkan pemberitahuan
-    public static function show_github_updater_notice() {
-        ?>
-        <div class="notice notice-error">
-            <p><?php _e( 'Your plugin requires GitHub Updater to be enabled. Please install and enable GitHub Updater first.', 'sellkit-ypf' ); ?></p>
-        </div>
-        <?php
-    }
 
 }
