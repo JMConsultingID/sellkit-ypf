@@ -16,8 +16,8 @@
  * Plugin Name:       Sellkit Add-on - YPF Checkout
  * Plugin URI:        https://yourpropfirm.com/
  * Description:       Plugin for Customize Sellkit Checkout Page
- * Version:           1.0.25
- * Author:            Ardika JM Consulting
+ * Version:           1.0.26
+ * Author:            Ardi
  * Author URI:        https://yourpropfirm.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
