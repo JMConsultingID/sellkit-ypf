@@ -61,7 +61,7 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         $custom_css = get_option('sellkit_ypf_custom_css');
         if (!empty($custom_css)) {
             // Enqueue your main stylesheet
-            wp_enqueue_style('sellkit-ypf-inline-css', plugins_url( '../public/css/sellkit-ypf-inline-css.css', __FILE__ ) );
+            wp_enqueue_style('sellkit-ypf-inline-css', plugins_url( 'public/css/sellkit-ypf-inline-css.css', __FILE__ ) );
 
             // Add inline style
             $inline_css = 'body { background-color: #f1f1f1; }'; // Your CSS here
@@ -71,7 +71,7 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
             // Enqueue your main script and place it in the footer
-            wp_enqueue_script( 'sellkit-ypf-inline-js', plugins_url( '../public/js/sellkit-ypf-inline-css.js', __FILE__ ), array('jquery'), '1.0.0', true );
+            wp_enqueue_script( 'sellkit-ypf-inline-js', plugins_url( 'public/js/sellkit-ypf-inline-css.js', __FILE__ ), array('jquery'), '1.0.0', true );
 
             // Add inline script
             $inline_js = 'console.log("Hello, World!");'; // Your JS here
