@@ -70,7 +70,7 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
             wp_add_inline_script('jquery-core', $custom_js);
-            error_log('Custom JS added : '. $custom_j);
+            error_log('Custom JS added : '. $custom_js);
         }
     }
 }
