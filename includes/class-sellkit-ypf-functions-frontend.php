@@ -47,35 +47,41 @@ function sellkit_ypf_add_terms_and_conditions_checkbox() {
 add_action('wp_footer', 'sellkit_ypf_add_terms_and_conditions_checkbox');
 
 function sellkit_ypf_enqueue_frontend_scripts() {
-    // Debugging - Check if function is called
-    error_log('sellkit_ypf_enqueue_frontend_scripts function called');
-
+    // Cek apakah plugin diaktifkan
     if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
-        error_log('sellkit_ypf_enable_plugin not enabled');
         return;
     }
 
     if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') === false) {
-        error_log('sellkit_step not in URL');
         return;
     }
 
+    // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
     if (get_option('sellkit_ypf_enable_css_editor') === 'enable') {
         $custom_css = get_option('sellkit_ypf_custom_css');
         if (!empty($custom_css)) {
-            wp_add_inline_style('wp-block-library', $custom_css);
-            error_log('Custom CSS added : '. $custom_css);
+            // Enqueue your main stylesheet
+            wp_enqueue_style('sellkit-ypf-inline-css', plugins_url( '../public/css/sellkit-ypf-inline-css.css', __FILE__ ) );
+
+            // Add inline style
+            $inline_css = 'body { background-color: #f1f1f1; }'; // Your CSS here
+            wp_add_inline_style('sellkit-ypf-inline-css', $inline_css);
         }
 
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
-            wp_add_inline_script('jquery-core', $custom_js);
-            error_log('Custom JS added : '. $custom_js);
+            // Enqueue your main script and place it in the footer
+            wp_enqueue_script('sellkit-ypf-inline-js', get_template_directory_uri() . '../public/js/sellkit-ypf-inline-css.js', array(), false, true);
+            
+            // Add inline script
+            $inline_js = 'console.log("Hello, World!");'; // Your JS here
+            wp_add_inline_script('my-main-script', $inline_js);
         }
     }
-}
-add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100);
 
+    // Jika Anda juga ingin menambahkan JS Editor di masa depan, Anda bisa menambahkannya di sini dengan cara yang serupa.
+}
+add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
 
 function sellkit_ypf_get_badges_html() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
