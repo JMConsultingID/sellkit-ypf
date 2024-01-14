@@ -2,10 +2,10 @@
 // Add menu item
 function sellkit_ypf_add_admin_menu() {
     add_submenu_page(
-        'sellkit-dashboard',
+        'woocommerce',
         'YPF SellKit',
         'YPF SellKit',
-        'edit_theme_options',
+        'manage_options',
         'sellkit-ypf',
         'sellkit_ypf_settings_page'
     );
