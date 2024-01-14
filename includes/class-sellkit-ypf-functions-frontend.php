@@ -51,7 +51,19 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         return;
     }
 
-    if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') === false) {
+    if (get_option('sellkit_ypf_enable_css_editor') === 'enable') {
+        $custom_js = get_option('sellkit_ypf_custom_js');
+        if (!empty($custom_js)) {
+            // Enqueue your main script and place it in the footer
+            wp_enqueue_script( 'sellkit-ypf-inline-js', plugins_url( '../public/js/sellkit-ypf-inline-js.js', __FILE__ ), array('jquery'), '1.0.0', true );
+            wp_add_inline_script('sellkit-ypf-inline-js', $custom_js);
+        }
+    }
+}
+add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 200);
+
+function sellkit_ypf_add_footer_styles() {
+    if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
         return;
     }
 
@@ -62,16 +74,9 @@ function sellkit_ypf_enqueue_frontend_scripts() {
             wp_enqueue_style('sellkit-ypf-inline-css', plugins_url( '../public/css/sellkit-ypf-inline-css.css', __FILE__ ) );
             wp_add_inline_style('sellkit-ypf-inline-css', $custom_css);
         }
-
-        $custom_js = get_option('sellkit_ypf_custom_js');
-        if (!empty($custom_js)) {
-            // Enqueue your main script and place it in the footer
-            wp_enqueue_script( 'sellkit-ypf-inline-js', plugins_url( '../public/js/sellkit-ypf-inline-js.js', __FILE__ ), array('jquery'), '1.0.0', true );
-            wp_add_inline_script('sellkit-ypf-inline-js', $custom_js);
-        }
     }
-}
-add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
+};
+add_action( 'get_footer', 'sellkit_ypf_add_footer_styles', 100 );
 
 function sellkit_ypf_get_badges_html() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
