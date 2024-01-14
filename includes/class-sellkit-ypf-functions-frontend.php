@@ -79,7 +79,7 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         }
     }
 }
-add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); 
+add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 200); 
 
 function sellkit_ypf_get_badges_html() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
