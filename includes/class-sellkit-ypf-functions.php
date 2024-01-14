@@ -5,7 +5,7 @@ function sellkit_ypf_add_admin_menu() {
         'sellkit-dashboard',
         'YPF SellKit',
         'YPF SellKit',
-        'manage_options',
+        'edit_theme_options',
         'sellkit-ypf',
         'sellkit_ypf_settings_page'
     );
