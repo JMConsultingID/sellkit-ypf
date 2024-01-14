@@ -47,31 +47,35 @@ function sellkit_ypf_add_terms_and_conditions_checkbox() {
 add_action('wp_footer', 'sellkit_ypf_add_terms_and_conditions_checkbox');
 
 function sellkit_ypf_enqueue_frontend_scripts() {
-    // Cek apakah plugin diaktifkan
+    // Debugging - Check if function is called
+    error_log('sellkit_ypf_enqueue_frontend_scripts function called');
+
     if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
+        error_log('sellkit_ypf_enable_plugin not enabled');
         return;
     }
 
     if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') === false) {
+        error_log('sellkit_step not in URL');
         return;
     }
 
-    // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
     if (get_option('sellkit_ypf_enable_css_editor') === 'enable') {
         $custom_css = get_option('sellkit_ypf_custom_css');
         if (!empty($custom_css)) {
-            wp_add_inline_style('wp-block-library', $custom_css); // 'wp-block-library' adalah handle untuk salah satu stylesheets inti WordPress. Anda bisa menggantinya dengan handle stylesheet lain jika diperlukan.
+            wp_add_inline_style('wp-block-library', $custom_css);
+            error_log('Custom CSS added');
         }
 
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
-            wp_add_inline_script('jquery-core', $custom_js); // 'jquery-core' adalah handle untuk jQuery, yang merupakan salah satu skrip inti WordPress. Anda bisa menggantinya dengan handle skrip lain jika diperlukan.
+            wp_add_inline_script('jquery-core', $custom_js);
+            error_log('Custom JS added');
         }
     }
-
-    // Jika Anda juga ingin menambahkan JS Editor di masa depan, Anda bisa menambahkannya di sini dengan cara yang serupa.
 }
-add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
+add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100);
+
 
 function sellkit_ypf_get_badges_html() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
