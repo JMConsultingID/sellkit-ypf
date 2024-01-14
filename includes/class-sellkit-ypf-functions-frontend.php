@@ -47,7 +47,6 @@ function sellkit_ypf_add_terms_and_conditions_checkbox() {
 add_action('wp_footer', 'sellkit_ypf_add_terms_and_conditions_checkbox');
 
 function sellkit_ypf_enqueue_frontend_scripts() {
-    // Cek apakah plugin diaktifkan
     if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
         return;
     }
@@ -56,30 +55,23 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         return;
     }
 
-    // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
     if (get_option('sellkit_ypf_enable_css_editor') === 'enable') {
         $custom_css = get_option('sellkit_ypf_custom_css');
         if (!empty($custom_css)) {
             // Enqueue your main stylesheet
             wp_enqueue_style('sellkit-ypf-inline-css', plugins_url( '../public/css/sellkit-ypf-inline-css.css', __FILE__ ) );
-
-            // Add inline style
-            $inline_css = 'body { background-color: #f1f1f1; }'; // Your CSS here
-            wp_add_inline_style('sellkit-ypf-inline-css', $inline_css);
+            wp_add_inline_style('sellkit-ypf-inline-css', $custom_css);
         }
 
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
             // Enqueue your main script and place it in the footer
             wp_enqueue_script( 'sellkit-ypf-inline-js', plugins_url( '../public/js/sellkit-ypf-inline-js.js', __FILE__ ), array('jquery'), '1.0.0', true );
-
-            // Add inline script
-            $inline_js = 'console.log("Hello, World!");'; // Your JS here
-            wp_add_inline_script('sellkit-ypf-inline-js', $inline_js);
+            wp_add_inline_script('sellkit-ypf-inline-js', $custom_js);
         }
     }
 }
-add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 200); 
+add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
 
 function sellkit_ypf_get_badges_html() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
