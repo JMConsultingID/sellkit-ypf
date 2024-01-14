@@ -47,7 +47,6 @@ function sellkit_ypf_add_terms_and_conditions_checkbox() {
 add_action('wp_footer', 'sellkit_ypf_add_terms_and_conditions_checkbox');
 
 function sellkit_ypf_enqueue_frontend_scripts() {
-    // Cek apakah plugin diaktifkan
     if (get_option('sellkit_ypf_enable_plugin') !== 'enable') {
         return;
     }
@@ -56,20 +55,21 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         return;
     }
 
-    // Jika CSS Editor diaktifkan, tambahkan CSS ke frontend
     if (get_option('sellkit_ypf_enable_css_editor') === 'enable') {
         $custom_css = get_option('sellkit_ypf_custom_css');
         if (!empty($custom_css)) {
-            wp_add_inline_style('wp-block-library', $custom_css); // 'wp-block-library' adalah handle untuk salah satu stylesheets inti WordPress. Anda bisa menggantinya dengan handle stylesheet lain jika diperlukan.
+            // Enqueue your main stylesheet
+            wp_enqueue_style('sellkit-ypf-inline-css', plugins_url( '../public/css/sellkit-ypf-inline-css.css', __FILE__ ) );
+            wp_add_inline_style('sellkit-ypf-inline-css', $custom_css);
         }
 
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
-            wp_add_inline_script('jquery-core', $custom_js); // 'jquery-core' adalah handle untuk jQuery, yang merupakan salah satu skrip inti WordPress. Anda bisa menggantinya dengan handle skrip lain jika diperlukan.
+            // Enqueue your main script and place it in the footer
+            wp_enqueue_script( 'sellkit-ypf-inline-js', plugins_url( '../public/js/sellkit-ypf-inline-js.js', __FILE__ ), array('jquery'), '1.0.0', true );
+            wp_add_inline_script('sellkit-ypf-inline-js', $custom_js);
         }
     }
-
-    // Jika Anda juga ingin menambahkan JS Editor di masa depan, Anda bisa menambahkannya di sini dengan cara yang serupa.
 }
 add_action('wp_enqueue_scripts', 'sellkit_ypf_enqueue_frontend_scripts', 100); // Prioritas 100 untuk memastikan ini dijalankan setelah stylesheet lainnya.
 
