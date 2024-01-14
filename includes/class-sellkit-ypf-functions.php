@@ -3,7 +3,7 @@
 function sellkit_ypf_add_admin_menu() {
     add_submenu_page(
         'sellkit-dashboard',
-        'YPF SellKit',
+        'SellKit',
         'YPF SellKit',
         'manage_options',
         'sellkit-ypf',
