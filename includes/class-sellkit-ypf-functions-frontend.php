@@ -71,11 +71,11 @@ function sellkit_ypf_enqueue_frontend_scripts() {
         $custom_js = get_option('sellkit_ypf_custom_js');
         if (!empty($custom_js)) {
             // Enqueue your main script and place it in the footer
-            wp_enqueue_script('sellkit-ypf-inline-js', get_template_directory_uri() . '../public/js/sellkit-ypf-inline-css.js', array(), false, true);
-            
+            wp_enqueue_script('sellkit-ypf-inline-js', get_template_directory_uri() . '../public/js/sellkit-ypf-inline-css.js', array('jquery'), '1.0.1', true );
+
             // Add inline script
             $inline_js = 'console.log("Hello, World!");'; // Your JS here
-            wp_add_inline_script('my-main-script', $inline_js);
+            wp_add_inline_script('sellkit-ypf-inline-js', $inline_js);
         }
     }
 
