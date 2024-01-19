@@ -231,3 +231,9 @@ function sellkit_ypf_custom_override_default_checkout_fields( $address_fields ) 
     return $address_fields;
 }
 add_filter( 'woocommerce_ship_to_different_address_checked', '_return_true' );
+
+function year_shortcode () {
+    $year = date_i18n ('Y');
+    return $year;
+    }
+add_shortcode ('ypf-year', 'year_shortcode');
