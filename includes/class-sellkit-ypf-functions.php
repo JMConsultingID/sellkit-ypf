@@ -126,10 +126,6 @@ function sellkit_ypf_custom_js_callback() {
 }
 
 function sellkit_ypf_enqueue_scripts($hook) {
-    if ($hook != 'toplevel_page_sellkit-ypf') {
-        return;
-    }
-
     // Enqueue CodeMirror scripts and styles
     wp_enqueue_style('wp-codemirror');
     wp_enqueue_script('wp-codemirror');
