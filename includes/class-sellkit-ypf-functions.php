@@ -83,7 +83,6 @@ function sellkit_ypf_enable_badges_payment_callback() {
 function sellkit_ypf_badges_images_payment_callback() {
     $badges = get_option('sellkit_ypf_badges_images_payment', array());
 
-    // Pastikan $badges adalah array
     if (!is_array($badges)) {
         $badges = array();
     }
@@ -151,7 +150,6 @@ function sellkit_ypf_export_settings() {
         'sellkit_ypf_enable_css_editor' => get_option('sellkit_ypf_enable_css_editor'),
         'sellkit_ypf_custom_css' => get_option('sellkit_ypf_custom_css'),
         'sellkit_ypf_custom_js'  => get_option('sellkit_ypf_custom_js'),
-        // Tambahkan pengaturan lainnya jika diperlukan
     );
     $current_date_time = date('Y-m-d_H-i-s');
     header('Content-Type: application/json');
@@ -203,7 +201,7 @@ add_action('admin_footer', 'sellkit_ypf_admin_scripts');
 
 
 function sellkit_ypf_enqueue_admin_scripts($hook) {
-    wp_enqueue_media();  // Pastikan baris ini ada
+    wp_enqueue_media();  
 
     wp_enqueue_script('sellkit-ypf-admin', plugin_dir_url( __FILE__ ) . '../admin/js/sellkit-ypf-main.js', array('jquery'), '1.0.0', true);
 }
@@ -217,9 +215,7 @@ add_action('admin_enqueue_scripts', 'sellkit_ypf_enqueue_admin_scripts');
 // Check if the plugin is enabled and if the current request URI matches the given pattern
 function sellkit_ypf_check_request_uri() {
     if (get_option('sellkit_ypf_enable_plugin') == 'enable') {
-        if (strpos($_SERVER['REQUEST_URI'], '/sellkit_step/') !== false) {
             add_action('init', 'replace_sellkit_action', 9999);
-        }
     }
 }
 add_action('init', 'sellkit_ypf_check_request_uri', 1); // Run this early on the 'init' hook
